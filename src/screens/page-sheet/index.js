@@ -5,7 +5,7 @@ const Container = styled.ScrollView`
 	flex:1;
 `
 
-class LoginScreen extends Component {
+class PageSheetScreen extends Component {
 
 	render() {
 		return (
@@ -16,4 +16,4 @@ class LoginScreen extends Component {
 	}
 }
 
-export default LoginScreen
+export default PageSheetScreen

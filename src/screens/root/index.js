@@ -30,10 +30,17 @@ class RootScreen extends Component {
 						drawBehind: true,
 						title: {
 							text: "Login",
+							fontWeight: "semibold",
 						},
 						largeTitle: {
 							visible: true,
 						},
+						rightButtons: [
+							{
+								id: "done",
+								systemItem: "add",
+							},
+						],
 					},
 				},
 			},
@@ -48,17 +55,151 @@ class RootScreen extends Component {
 				options: {
 					topBar: {
 						visible: true,
-						drawBehind: true,
+						drawBehind: false,
+						searchBar: true,
+						background: {
+							color: "white",
+							translucent: true,
+							blur: false,
+						},
+						searchBarPlaceholder: "Search",
 						title: {
 							text: "Register",
+							fontWeight: "semibold",
 						},
-						largeTitle: {
-							visible: true,
-						},
+						rightButtons: [
+							{
+								id: "done",
+								text: "Action",
+							},
+						],
 					},
 				},
 			},
 		})
+	}
+
+	onPageSheetPress = () => {
+		Navigation.showModal({
+			stack: {
+				children: [{
+					component: {
+						name: SCREENS.PAGE_SHEET,
+						options: {
+							modalPresentationStyle: "pageSheet",
+							topBar: {
+								title: {
+									text: "Page Sheet",
+									fontWeight: "semibold",
+								},
+								visible: true,
+								drawBehind: false,
+								leftButtons: [
+									{
+										id: "cancel",
+										systemItem: "cancel",
+									},
+								],
+								rightButtons: [
+									{
+										id: "done",
+										systemItem: "done",
+										fontWeight: "semibold",
+									},
+								],
+							},
+						},
+					},
+				}],
+			},
+		})
+	}
+
+	onFormSheetPress = () => {
+		Navigation.showModal({
+			stack: {
+				children: [{
+					component: {
+						name: SCREENS.FORM_SHEET,
+						options: {
+							modalPresentationStyle: "formSheet",
+							topBar: {
+								title: {
+									text: "Form Sheet",
+									fontWeight: "semibold",
+								},
+								searchBar: true,
+								searchBarPlaceholder: "Search",
+								visible: true,
+								drawBehind: false,
+								leftButtons: [
+									{
+										id: "cancel",
+										systemItem: "cancel",
+									},
+								],
+								rightButtons: [
+									{
+										id: "done",
+										systemItem: "done",
+										fontWeight: "semibold",
+									},
+								],
+							},
+						},
+					},
+				}],
+			},
+		})
+	}
+
+	onBottomTabsPress = () => {
+		const { componentId } = this.props
+		Navigation.push(componentId, {
+				bottomTabs: {
+					options: {
+						topBar: {
+							title: {
+								text: "Tab 1",
+								fontWeight: "semibold",
+							},
+						},
+					},
+					children: [
+						{
+							component: {
+								name: SCREENS.BOTTOM_TABS,
+								options: {
+									bottomTab: {
+										text: "Tab 1",
+									},
+								},
+							},
+						},
+						{
+							component: {
+								name: SCREENS.BOTTOM_TABS,
+								options: {
+									bottomTab: {
+										text: "Tab 2",
+									},
+								},
+							},
+						},
+						{
+							component: {
+								name: SCREENS.BOTTOM_TABS,
+								options: {
+									bottomTab: {
+										text: "Tab 3",
+									},
+								},
+							},
+						},
+					],
+				},
+			},
+		)
 	}
 
 
@@ -73,6 +214,21 @@ class RootScreen extends Component {
 				<Button onPress={this.onRegisterPress}>
 					<ButtonTitle>
 						Register
+					</ButtonTitle>
+				</Button>
+				<Button onPress={this.onPageSheetPress}>
+					<ButtonTitle>
+						Page Sheet
+					</ButtonTitle>
+				</Button>
+				<Button onPress={this.onFormSheetPress}>
+					<ButtonTitle>
+						Form Sheet
+					</ButtonTitle>
+				</Button>
+				<Button onPress={this.onBottomTabsPress}>
+					<ButtonTitle>
+						Bottom Tabs
 					</ButtonTitle>
 				</Button>
 			</Container>
