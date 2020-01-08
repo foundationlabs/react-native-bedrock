@@ -161,7 +161,6 @@
 				4C5B138590921EFFA046F830 /* Pods-BedrockTests.debug.xcconfig */,
 				1D83095862616CB3A90FD2BC /* Pods-BedrockTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +307,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
