@@ -5,11 +5,13 @@ import { Navigation } from "react-native-navigation"
 import { SCREENS } from "../index"
 import {
 	Body,
-	Callout, Footnote,
+	Callout,
+	Footnote,
 	Headline,
 	LargeTitle,
 	MediumTitle,
-	SmallTitle, SubHeading,
+	SmallTitle,
+	SubHeading,
 	TabBarButtonTitle,
 } from "../../components/ui/text"
 

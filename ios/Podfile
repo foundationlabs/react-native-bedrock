@@ -37,6 +37,7 @@ target 'Bedrock' do
   pod 'ReactNativeNavigation', :podspec => '../node_modules/react-native-navigation/ReactNativeNavigation.podspec'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
 
 
   target 'BedrockTests' do
