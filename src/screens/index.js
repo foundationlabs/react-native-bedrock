@@ -6,6 +6,7 @@ import RegisterScreen from "./register"
 import PageSheetScreen from "./page-sheet"
 import FormSheetScreen from "./form-sheet"
 import BottomTabsScreen from "./bottom-tabs"
+import rootProvider from "./root-provider"
 
 export const SCREENS = {
 	ROOT: "Bedrock.app.Root",
@@ -27,6 +28,6 @@ export const screens = {
 
 export default () => {
 	for (let r in screens) {
-		Navigation.registerComponent(r, () => screens[r])
+		Navigation.registerComponent(r, () => rootProvider(screens[r]))
 	}
 };

@@ -1,17 +1,39 @@
 import React, { Component } from "react"
+import { StyleSheet } from "react-native"
 import styled from "styled-components/native"
 import { Navigation } from "react-native-navigation"
 import { SCREENS } from "../index"
+import {
+	Body,
+	Callout, Footnote,
+	Headline,
+	LargeTitle,
+	MediumTitle,
+	SmallTitle, SubHeading,
+	TabBarButtonTitle,
+} from "../../components/ui/text"
 
 const Container = styled.ScrollView`
 	flex:1;
+	padding-left: 15px;
+	padding-right: 15px;
+`
+
+const Section = styled.View`
+padding-top: 10px;
+padding-bottom: 10px;
+`
+
+const SubSection = styled.View`
+padding-top: 5px;
 `
 
 const Button = styled.TouchableOpacity`
 	height:44;
 	justify-content: center;
-	align-items: center;
-	background-color: aliceblue;
+	align-items: flex-start;
+	border-bottom-width: ${StyleSheet.hairlineWidth};
+	border-bottom-color: black;
 `
 
 const ButtonTitle = styled.Text`
@@ -206,31 +228,74 @@ class RootScreen extends Component {
 	render() {
 		return (
 			<Container>
-				<Button onPress={this.onLoginPress}>
-					<ButtonTitle>
-						Login
-					</ButtonTitle>
-				</Button>
-				<Button onPress={this.onRegisterPress}>
-					<ButtonTitle>
-						Register
-					</ButtonTitle>
-				</Button>
-				<Button onPress={this.onPageSheetPress}>
-					<ButtonTitle>
-						Page Sheet
-					</ButtonTitle>
-				</Button>
-				<Button onPress={this.onFormSheetPress}>
-					<ButtonTitle>
-						Form Sheet
-					</ButtonTitle>
-				</Button>
-				<Button onPress={this.onBottomTabsPress}>
-					<ButtonTitle>
-						Bottom Tabs
-					</ButtonTitle>
-				</Button>
+				<Section>
+					<SmallTitle>
+						Navigation Actions
+					</SmallTitle>
+					<Button onPress={this.onLoginPress}>
+						<ButtonTitle>
+							Push (Large Title)
+						</ButtonTitle>
+					</Button>
+					<Button onPress={this.onRegisterPress}>
+						<ButtonTitle>
+							Push (Small Title)
+						</ButtonTitle>
+					</Button>
+					<Button onPress={this.onPageSheetPress}>
+						<ButtonTitle>
+							Page Sheet
+						</ButtonTitle>
+					</Button>
+					<Button onPress={this.onFormSheetPress}>
+						<ButtonTitle>
+							Form Sheet
+						</ButtonTitle>
+					</Button>
+					<Button onPress={this.onBottomTabsPress}>
+						<ButtonTitle>
+							Bottom Tabs
+						</ButtonTitle>
+					</Button>
+				</Section>
+				<Section>
+					<SubSection>
+						<SmallTitle>
+							Text Elements
+						</SmallTitle>
+						<LargeTitle>
+							Large Title
+						</LargeTitle>
+						<MediumTitle>
+							Medium Title
+						</MediumTitle>
+						<SmallTitle>
+							Small Title
+						</SmallTitle>
+					</SubSection>
+					<SubSection>
+						<TabBarButtonTitle>
+							Tab Bar button title
+						</TabBarButtonTitle>
+					</SubSection>
+					<SubSection>
+						<Headline>
+							Headline
+						</Headline>
+						<Body>
+							Body
+						</Body>
+						<Callout>
+							Callout
+						</Callout>
+						<SubHeading>
+							Sub heading
+						</SubHeading>
+						<Footnote>
+							Footnote
+						</Footnote>
+					</SubSection>
+				</Section>
 			</Container>
 		)
 	}

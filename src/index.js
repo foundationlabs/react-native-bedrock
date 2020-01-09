@@ -17,7 +17,7 @@ Navigation.events().registerAppLaunchedListener(async () => {
 								visible: true,
 								drawBehind: true,
 								title: {
-									text: "Root Screen",
+									text: "Bedrock",
 								},
 								largeTitle: {
 									visible: true,
