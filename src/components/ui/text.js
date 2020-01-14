@@ -67,7 +67,7 @@ export const Footnote = styled.Text`
 
 export const TabBarButtonTitle = styled.Text`
 	font-family: ${props => props.theme.font.primary};
-  color: ${props => props.theme.color.textPrimary};
+    color: ${props => props.theme.color.textPrimary};
 	font-size: 14px;
 	font-weight: 600;
 `
