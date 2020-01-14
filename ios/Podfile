@@ -38,7 +38,7 @@ target 'Bedrock' do
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
   pod 'react-native-config', :path => '../node_modules/react-native-config'
-
+  pod 'ReactNativeDarkMode', :path => '../node_modules/react-native-dark-mode/ReactNativeDarkMode.podspec'
 
   target 'BedrockTests' do
     inherit! :search_paths

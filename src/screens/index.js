@@ -1,29 +1,26 @@
 import React from "react"
 import { Navigation } from "react-native-navigation"
 import RootScreen from "./root"
-import LoginScreen from "./login"
-import RegisterScreen from "./register"
-import PageSheetScreen from "./page-sheet"
-import FormSheetScreen from "./form-sheet"
-import BottomTabsScreen from "./bottom-tabs"
 import rootProvider from "./root-provider"
+import ComponentsScreen from "./components"
+import ThemesScreen from "./themes"
+import AboutScreen from "./about"
+import TypographyScreen from "./typography"
 
 export const SCREENS = {
 	ROOT: "Bedrock.app.Root",
-	LOGIN: "Bedrock.app.Login",
-	REGISTER: "Bedrock.app.Register",
-	PAGE_SHEET: "Bedrock.app.PageSheet",
-	FORM_SHEET: "Bedrock.app.FormSheet",
-	BOTTOM_TABS: "Bedrock.app.BottomTabs",
+	COMPONENTS: "Bedrock.app.Components",
+	ABOUT: "Bedrock.app.About",
+	THEMES: "Bedrock.app.Themes",
+	TYPOGRAPHY: "Bedrock.app.Typography",
 }
 
 export const screens = {
 	[SCREENS.ROOT]: RootScreen,
-	[SCREENS.LOGIN]: LoginScreen,
-	[SCREENS.REGISTER]: RegisterScreen,
-	[SCREENS.PAGE_SHEET]: PageSheetScreen,
-	[SCREENS.FORM_SHEET]: FormSheetScreen,
-	[SCREENS.BOTTOM_TABS]: BottomTabsScreen,
+	[SCREENS.COMPONENTS]: ComponentsScreen,
+	[SCREENS.ABOUT]: AboutScreen,
+	[SCREENS.THEMES]: ThemesScreen,
+	[SCREENS.TYPOGRAPHY]: TypographyScreen,
 }
 
 export default () => {

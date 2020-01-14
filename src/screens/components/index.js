@@ -1,53 +1,26 @@
 import React, { Component } from "react"
-import { StyleSheet } from "react-native"
 import styled from "styled-components/native"
 import { Navigation } from "react-native-navigation"
 import { SCREENS } from "../index"
-import {
-	Body,
-	Callout,
-	Footnote,
-	Headline,
-	LargeTitle,
-	MediumTitle,
-	SmallTitle,
-	SubHeading,
-	TabBarButtonTitle,
-} from "../../components/ui/text"
+import { ListRowTitle, ListSectionTitle } from "../../components/ui/text"
+import { ListRow, ListRowSeparator, ListSection, ListSectionHeader } from "../../components/ui/list"
+import { ScreenContainer } from "../../components/ui/screen"
 
 const Container = styled.ScrollView`
 	flex:1;
-	padding-left: 15px;
-	padding-right: 15px;
-`
-
-const Section = styled.View`
-padding-top: 10px;
-padding-bottom: 10px;
-`
-
-const SubSection = styled.View`
-padding-top: 5px;
 `
 
 const Button = styled.TouchableOpacity`
-	height: 44;
-	justify-content: center;
-	align-items: flex-start;
-	border-bottom-width: ${StyleSheet.hairlineWidth};
-	border-bottom-color: black;
+	height: 44px;
 `
 
-const ButtonTitle = styled.Text`
-`
-
-class RootScreen extends Component {
+class ComponentsScreen extends Component {
 
 	onLoginPress = () => {
 		const { componentId } = this.props
 		Navigation.push(componentId, {
 			component: {
-				name: SCREENS.LOGIN,
+				name: SCREENS.ABOUT,
 				options: {
 					topBar: {
 						visible: true,
@@ -75,7 +48,7 @@ class RootScreen extends Component {
 		const { componentId } = this.props
 		Navigation.push(componentId, {
 			component: {
-				name: SCREENS.REGISTER,
+				name: SCREENS.ABOUT,
 				options: {
 					topBar: {
 						visible: true,
@@ -108,7 +81,7 @@ class RootScreen extends Component {
 			stack: {
 				children: [{
 					component: {
-						name: SCREENS.PAGE_SHEET,
+						name: SCREENS.ABOUT,
 						options: {
 							modalPresentationStyle: "pageSheet",
 							topBar: {
@@ -144,7 +117,7 @@ class RootScreen extends Component {
 			stack: {
 				children: [{
 					component: {
-						name: SCREENS.FORM_SHEET,
+						name: SCREENS.ABOUT,
 						options: {
 							modalPresentationStyle: "formSheet",
 							topBar: {
@@ -177,6 +150,33 @@ class RootScreen extends Component {
 		})
 	}
 
+	onTypographyPress = () => {
+		const { componentId } = this.props
+		Navigation.push(componentId, {
+			component: {
+				name: SCREENS.TYPOGRAPHY,
+				options: {
+					topBar: {
+						visible: true,
+						drawBehind: true,
+						title: {
+							text: "Typography",
+							fontWeight: "semibold",
+						},
+						largeTitle: {
+							visible: true,
+						},
+					},
+					bottomTabs: {
+						animate: false,
+						visible: false,
+						drawBehind: true,
+					},
+				},
+			},
+		})
+	}
+
 	onBottomTabsPress = () => {
 		const { componentId } = this.props
 		Navigation.push(componentId, {
@@ -192,7 +192,7 @@ class RootScreen extends Component {
 					children: [
 						{
 							component: {
-								name: SCREENS.BOTTOM_TABS,
+								name: SCREENS.ABOUT,
 								options: {
 									bottomTab: {
 										text: "Tab 1",
@@ -202,7 +202,7 @@ class RootScreen extends Component {
 						},
 						{
 							component: {
-								name: SCREENS.BOTTOM_TABS,
+								name: SCREENS.ABOUT,
 								options: {
 									bottomTab: {
 										text: "Tab 2",
@@ -212,7 +212,7 @@ class RootScreen extends Component {
 						},
 						{
 							component: {
-								name: SCREENS.BOTTOM_TABS,
+								name: SCREENS.ABOUT,
 								options: {
 									bottomTab: {
 										text: "Tab 3",
@@ -229,78 +229,72 @@ class RootScreen extends Component {
 
 	render() {
 		return (
-			<Container>
-				<Section>
-					<SmallTitle>
-						Navigation Actions
-					</SmallTitle>
-					<Button onPress={this.onLoginPress}>
-						<ButtonTitle>
-							Push (Large Title)
-						</ButtonTitle>
-					</Button>
-					<Button onPress={this.onRegisterPress}>
-						<ButtonTitle>
-							Push (Small Title)
-						</ButtonTitle>
-					</Button>
-					<Button onPress={this.onPageSheetPress}>
-						<ButtonTitle>
-							Page Sheet
-						</ButtonTitle>
-					</Button>
-					<Button onPress={this.onFormSheetPress}>
-						<ButtonTitle>
-							Form Sheet
-						</ButtonTitle>
-					</Button>
-					<Button onPress={this.onBottomTabsPress}>
-						<ButtonTitle>
-							Bottom Tabs
-						</ButtonTitle>
-					</Button>
-				</Section>
-				<Section>
-					<SubSection>
-						<SmallTitle>
-							Text Elements
-						</SmallTitle>
-						<LargeTitle>
-							Large Title
-						</LargeTitle>
-						<MediumTitle>
-							Medium Title
-						</MediumTitle>
-						<SmallTitle>
-							Small Title
-						</SmallTitle>
-					</SubSection>
-					<SubSection>
-						<TabBarButtonTitle>
-							Tab Bar button title
-						</TabBarButtonTitle>
-					</SubSection>
-					<SubSection>
-						<Headline>
-							Headline
-						</Headline>
-						<Body>
-							Body
-						</Body>
-						<Callout>
-							Callout
-						</Callout>
-						<SubHeading>
-							Sub heading
-						</SubHeading>
-						<Footnote>
-							Footnote
-						</Footnote>
-					</SubSection>
-				</Section>
-			</Container>
+			<ScreenContainer>
+				<Container>
+					<ListSectionHeader>
+						<ListSectionTitle>
+							NAVIGATION
+						</ListSectionTitle>
+					</ListSectionHeader>
+					<ListSection>
+						<Button onPress={this.onLoginPress}>
+							<ListRow first>
+								<ListRowTitle>
+									Push (Large Title)
+								</ListRowTitle>
+							</ListRow>
+						</Button>
+						<ListRowSeparator />
+						<Button onPress={this.onRegisterPress}>
+							<ListRow>
+								<ListRowTitle>
+									Push (Small Title)
+								</ListRowTitle>
+							</ListRow>
+						</Button>
+						<ListRowSeparator />
+						<Button onPress={this.onPageSheetPress}>
+							<ListRow>
+								<ListRowTitle>
+									Page Sheet
+								</ListRowTitle>
+							</ListRow>
+						</Button>
+						<ListRowSeparator />
+						<Button onPress={this.onFormSheetPress}>
+							<ListRow>
+								<ListRowTitle>
+									Form Sheet
+								</ListRowTitle>
+							</ListRow>
+						</Button>
+						<ListRowSeparator />
+						<Button onPress={this.onBottomTabsPress}>
+							<ListRow last>
+								<ListRowTitle>
+									Bottom Tabs
+								</ListRowTitle>
+							</ListRow>
+						</Button>
+					</ListSection>
+					<ListSectionHeader>
+						<ListSectionTitle>
+							ELEMENTS
+						</ListSectionTitle>
+					</ListSectionHeader>
+					<ListSection>
+						<Button onPress={this.onTypographyPress}>
+							<ListRow first last>
+								<ListRowTitle>
+									Typography
+								</ListRowTitle>
+							</ListRow>
+						</Button>
+					</ListSection>
+				</Container>
+			</ScreenContainer>
 		)
 	}
 }
 
-export default RootScreen
+export default ComponentsScreen
