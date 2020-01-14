@@ -3,12 +3,14 @@
 buildscript {
     ext {
         buildToolsVersion = "28.0.3"
-        minSdkVersion = 16
+        minSdkVersion = 18
         compileSdkVersion = 28
         targetSdkVersion = 28
     }
     repositories {
         google()
+        mavenLocal()
+        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -21,6 +23,7 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
         mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
