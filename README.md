@@ -1,7 +1,7 @@
 # Bedrock
 Bedrock is a React Native starter kit for creating apps that adhere to iOS and Android design guidelines.
 
-![iOS and Android](ios-android-demo.png)
+![iOS and Android](ios-android-demo-wide.png)
 
 # Intro
 iOS and Android come with sophisticated native components which are underutilized by product development teams using React Native. Bedrock enables teams to build UIs that are familiar to their users.
