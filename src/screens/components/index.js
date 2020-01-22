@@ -5,6 +5,7 @@ import {SCREENS} from '../index';
 import {ListRowTitle, ListSectionTitle} from '../../components/ui/text';
 import {ListRow, ListRowSeparator, ListSection, ListSectionHeader} from '../../components/ui/list';
 import {ScreenContainer} from '../../components/ui/screen';
+import {SwipeableListRow}  from '../../components/ui/swipeable-list-row';
 
 const Container = styled.ScrollView`
 	flex:1;
@@ -289,6 +290,11 @@ class ComponentsScreen extends Component {
                 </ListRowTitle>
               </ListRow>
             </Button>
+            <SwipeableListRow>
+                <ListRowTitle>
+                  Swipeable list
+                </ListRowTitle>
+            </SwipeableListRow>
           </ListSection>
         </Container>
       </ScreenContainer>
