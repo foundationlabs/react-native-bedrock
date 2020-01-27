@@ -8,7 +8,7 @@ import { ListRow } from './list'
 
 const AnimatedView = styled(Animated.View)`
     width: 64px;
-    backgroundColor: #DF2A02
+    backgroundColor: ${props => props.theme.color.error};
 `
 
 export class SwipeableListRow extends React.PureComponent {
