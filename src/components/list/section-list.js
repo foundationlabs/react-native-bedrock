@@ -1,35 +1,50 @@
-import React, { Component } from "react"
-import { SectionList } from "react-native"
-import { ListRow, ListSectionHeader } from "../ui/list"
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {SectionList} from 'react-native';
+import {ListRow, ListSectionHeader} from '../ui/list';
+import {ListSectionTitle} from '../ui/text';
 
 class NativeSectionList extends Component {
 
-	renderItem = (...props) => {
-		const { renderItem } = this.props
-		return (
-			<ListRow>
-				{renderItem(...props)}
-			</ListRow>
-		)
-	}
+  static propTypes = {
+    renderItem: PropTypes.func,
+    data: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      data: PropTypes.array
+    })).isRequired
+  };
 
-	renderSectionHeader = () => {
-		return (
-			<ListSectionHeader>
+  renderItem = (...props) => {
+    const {renderItem} = this.props;
+    return (
+      <ListRow>
+        {renderItem(...props)}
+      </ListRow>
+    );
+  };
 
-			</ListSectionHeader>
-		)
-	}
+  renderSectionHeader = ({section: {title}}) => {
+    return (
+      <ListSectionHeader>
+        <ListSectionTitle>
+          {title}
+        </ListSectionTitle>
+      </ListSectionHeader>
+    );
+  };
 
-	render() {
-		return (
-			<SectionList
-				renderSectionHeader={this.renderSectionHeader}
-				renderItem={this.renderItem}
-			/>
-		)
-	}
+  render() {
+    const {data} = this.props;
+
+    return (
+      <SectionList
+        renderSectionHeader={this.renderSectionHeader}
+        renderItem={this.renderItem}
+        data={data}
+      />
+    );
+  }
 
 }
 
-export default NativeSectionList
+export default NativeSectionList;

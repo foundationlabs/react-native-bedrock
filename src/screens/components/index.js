@@ -16,7 +16,42 @@ const Button = styled.TouchableOpacity`
 
 class ComponentsScreen extends Component {
 
-  onLoginPress = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mockSectionListData: [
+        {
+          title: 'NAVIGATION',
+          data: [
+            {
+              key: 'push-large-title',
+              title: 'Push (Large Title)',
+              action: this.onPushLargeTitle
+            },
+            {
+              key: 'push-small-title',
+              title: 'Push (Small Title)',
+              action: this.onPushLargeTitle
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  renderListItem = ({item}) => {
+    return (
+      <Button onPress={item.action}>
+        <ListRow first>
+          <ListRowTitle>
+            {item.title}
+          </ListRowTitle>
+        </ListRow>
+      </Button>
+    );
+  };
+
+  onPushLargeTitle = () => {
     const {componentId} = this.props;
     Navigation.push(componentId, {
       component: {
@@ -179,7 +214,8 @@ class ComponentsScreen extends Component {
 
   onBottomTabsPress = () => {
     const {componentId} = this.props;
-    Navigation.push(componentId, {
+    Navigation.push(componentId,
+      {
         bottomTabs: {
           options: {
             topBar: {
@@ -236,7 +272,7 @@ class ComponentsScreen extends Component {
             </ListSectionTitle>
           </ListSectionHeader>
           <ListSection>
-            <Button onPress={this.onLoginPress}>
+            <Button onPress={this.onPushLargeTitle}>
               <ListRow first>
                 <ListRowTitle>
                   Push (Large Title)
