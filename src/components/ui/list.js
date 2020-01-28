@@ -6,10 +6,13 @@ export const ListSection = styled.View`
 	background-color: #fff;
 `
 export const ListSectionHeader = styled.View`
+	background-color: rgba(242,242,247, 1);
 	padding-left: 15px;
 	padding-right: 15px;
-	height: 64px;
-	padding-bottom: 6px;
+	border-bottom-color: ${props => props.theme.color.border};
+	border-bottom-width: ${StyleSheet.hairlineWidth};
+	padding-top: 8px;
+	padding-bottom: 8px;
 	justify-content: flex-end;
 `
 
@@ -18,11 +21,7 @@ export const ListRow = styled.View`
 	border-bottom-width: ${props => props.last ? StyleSheet.hairlineWidth : 0};
 	border-top-color: ${props => props.first ? props.theme.color.border : "transparent"};
 	border-bottom-color: ${props => props.last ? props.theme.color.border : "transparent"};
-	padding-left: 15px;
-	padding-right: 15px;
 	background-color: #fff;
-	padding-top: 12px;
-	padding-bottom: 12px;
 	justify-content: center;
 `
 

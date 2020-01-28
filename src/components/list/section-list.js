@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
+import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import {SectionList} from 'react-native';
-import {ListRow, ListSectionHeader} from '../ui/list';
+import {ListRow, ListSectionHeader, ListRowSeparator} from '../ui/list';
 import {ListSectionTitle} from '../ui/text';
+
+
+const StyledSectionList = styled(SectionList)`
+  flex:1;
+`
 
 class NativeSectionList extends Component {
 
@@ -12,15 +18,6 @@ class NativeSectionList extends Component {
       title: PropTypes.string,
       data: PropTypes.array
     })).isRequired
-  };
-
-  renderItem = (...props) => {
-    const {renderItem} = this.props;
-    return (
-      <ListRow>
-        {renderItem(...props)}
-      </ListRow>
-    );
   };
 
   renderSectionHeader = ({section: {title}}) => {
@@ -34,13 +31,13 @@ class NativeSectionList extends Component {
   };
 
   render() {
-    const {data} = this.props;
+    const {data, renderItem} = this.props;
 
     return (
-      <SectionList
+      <StyledSectionList
         renderSectionHeader={this.renderSectionHeader}
-        renderItem={this.renderItem}
-        data={data}
+        renderItem={renderItem}
+        sections={data}
       />
     );
   }

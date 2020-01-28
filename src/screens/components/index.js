@@ -2,17 +2,18 @@ import React, {Component} from 'react';
 import styled from 'styled-components/native';
 import {Navigation} from 'react-native-navigation';
 import {SCREENS} from '../index';
-import {ListRowTitle, ListSectionTitle} from '../../components/ui/text';
-import {ListRow, ListRowSeparator, ListSection, ListSectionHeader} from '../../components/ui/list';
 import {ScreenContainer} from '../../components/ui/screen';
+import NativeSectionList from '../../components/list/section-list';
+import NativeUIListRow from '../../components/list/list-row';
 
-const Container = styled.ScrollView`
+const Container = styled.View`
 	flex:1;
 `;
 
 const Button = styled.TouchableOpacity`
-	height: 44px;
 `;
+
+const StarIcon = require('../../../assets/icons/star.png');
 
 class ComponentsScreen extends Component {
 
@@ -31,25 +32,50 @@ class ComponentsScreen extends Component {
             {
               key: 'push-small-title',
               title: 'Push (Small Title)',
-              action: this.onPushLargeTitle
+              action: this.onPushSmallTitle
+            },
+            {
+              key: 'page-sheet',
+              title: 'Page Sheet',
+              action: this.onPageSheetPress
+            },
+            {
+              key: 'form-sheet',
+              title: 'Form Sheet',
+              action: this.onFormSheetPress
+            }
+          ]
+        },
+        {
+          title: 'TABLE ROWS',
+          data: [
+            {
+              key: 'icon-table-row',
+              title: 'Row with icon',
+              action: this.onPushLargeTitle,
+              icon: StarIcon
+            },
+            {
+              key: 'icon-table-row',
+              title: 'Row with icon 2',
+              action: this.onPushLargeTitle,
+              icon: StarIcon
+            }
+          ]
+        },
+        {
+          title: 'TYPOGRAPHY',
+          data: [
+            {
+              key: 'typography',
+              title: 'Typography',
+              action: this.onTypographyPress
             }
           ]
         }
       ]
     };
   }
-
-  renderListItem = ({item}) => {
-    return (
-      <Button onPress={item.action}>
-        <ListRow first>
-          <ListRowTitle>
-            {item.title}
-          </ListRowTitle>
-        </ListRow>
-      </Button>
-    );
-  };
 
   onPushLargeTitle = () => {
     const {componentId} = this.props;
@@ -79,7 +105,7 @@ class ComponentsScreen extends Component {
     });
   };
 
-  onRegisterPress = () => {
+  onPushSmallTitle = () => {
     const {componentId} = this.props;
     Navigation.push(componentId, {
       component: {
@@ -262,71 +288,85 @@ class ComponentsScreen extends Component {
     );
   };
 
+  renderItem = ({item}) => {
+    return (
+      <NativeUIListRow
+        onPress={item.action}
+        title={item.title}
+        leftIcon={item.icon}
+      />
+    );
+  };
+
   render() {
     return (
       <ScreenContainer>
         <Container>
-          <ListSectionHeader>
-            <ListSectionTitle>
-              NAVIGATION
-            </ListSectionTitle>
-          </ListSectionHeader>
-          <ListSection>
-            <Button onPress={this.onPushLargeTitle}>
-              <ListRow first>
-                <ListRowTitle>
-                  Push (Large Title)
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <ListRowSeparator/>
-            <Button onPress={this.onRegisterPress}>
-              <ListRow>
-                <ListRowTitle>
-                  Push (Small Title)
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <ListRowSeparator/>
-            <Button onPress={this.onPageSheetPress}>
-              <ListRow>
-                <ListRowTitle>
-                  Page Sheet
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <ListRowSeparator/>
-            <Button onPress={this.onFormSheetPress}>
-              <ListRow>
-                <ListRowTitle>
-                  Form Sheet
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <ListRowSeparator/>
-            <Button onPress={this.onBottomTabsPress}>
-              <ListRow last>
-                <ListRowTitle>
-                  Bottom Tabs
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-          </ListSection>
-          <ListSectionHeader>
-            <ListSectionTitle>
-              ELEMENTS
-            </ListSectionTitle>
-          </ListSectionHeader>
-          <ListSection>
-            <Button onPress={this.onTypographyPress}>
-              <ListRow first last>
-                <ListRowTitle>
-                  Typography
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-          </ListSection>
+          <NativeSectionList
+            data={this.state.mockSectionListData}
+            renderItem={this.renderItem}
+          />
         </Container>
+        {/*<Container>*/}
+        {/*  <ListSectionHeader>*/}
+        {/*    <ListSectionTitle>*/}
+        {/*      NAVIGATION*/}
+        {/*    </ListSectionTitle>*/}
+        {/*  </ListSectionHeader>*/}
+        {/*  <ListSection>*/}
+        {/*    <Button onPress={this.onPushLargeTitle}>*/}
+        {/*      <ListRow first>*/}
+
+        {/*      </ListRow>*/}
+        {/*    </Button>*/}
+        {/*    <ListRowSeparator/>*/}
+        {/*    <Button onPress={this.onRegisterPress}>*/}
+        {/*      <ListRow>*/}
+        {/*        <ListRowTitle>*/}
+        {/*          Push (Small Title)*/}
+        {/*        </ListRowTitle>*/}
+        {/*      </ListRow>*/}
+        {/*    </Button>*/}
+        {/*    <ListRowSeparator/>*/}
+        {/*    <Button onPress={this.onPageSheetPress}>*/}
+        {/*      <ListRow>*/}
+        {/*        <ListRowTitle>*/}
+        {/*          Page Sheet*/}
+        {/*        </ListRowTitle>*/}
+        {/*      </ListRow>*/}
+        {/*    </Button>*/}
+        {/*    <ListRowSeparator/>*/}
+        {/*    <Button onPress={this.onFormSheetPress}>*/}
+        {/*      <ListRow>*/}
+        {/*        <ListRowTitle>*/}
+        {/*          Form Sheet*/}
+        {/*        </ListRowTitle>*/}
+        {/*      </ListRow>*/}
+        {/*    </Button>*/}
+        {/*    <ListRowSeparator/>*/}
+        {/*    <Button onPress={this.onBottomTabsPress}>*/}
+        {/*      <ListRow last>*/}
+        {/*        <ListRowTitle>*/}
+        {/*          Bottom Tabs*/}
+        {/*        </ListRowTitle>*/}
+        {/*      </ListRow>*/}
+        {/*    </Button>*/}
+        {/*  </ListSection>*/}
+        {/*  <ListSectionHeader>*/}
+        {/*    <ListSectionTitle>*/}
+        {/*      ELEMENTS*/}
+        {/*    </ListSectionTitle>*/}
+        {/*  </ListSectionHeader>*/}
+        {/*  <ListSection>*/}
+        {/*    <Button onPress={this.onTypographyPress}>*/}
+        {/*      <ListRow first last>*/}
+        {/*        <ListRowTitle>*/}
+        {/*          Typography*/}
+        {/*        </ListRowTitle>*/}
+        {/*      </ListRow>*/}
+        {/*    </Button>*/}
+        {/*  </ListSection>*/}
+        {/*</Container>*/}
       </ScreenContainer>
     );
   }
