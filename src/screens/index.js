@@ -9,14 +9,14 @@ export const SCREENS = {
   COMPONENTS: 'Bedrock.app.Components',
   ABOUT: 'Bedrock.app.About',
   THEMES: 'Bedrock.app.Themes',
-  TYPOGRAPHY: 'Bedrock.app.Typography'
+  TYPOGRAPHY: 'Bedrock.app.Typography',
 };
 
 export const screens = {
   [SCREENS.COMPONENTS]: ComponentsScreen,
   [SCREENS.ABOUT]: AboutScreen,
   [SCREENS.THEMES]: ThemesScreen,
-  [SCREENS.TYPOGRAPHY]: TypographyScreen
+  [SCREENS.TYPOGRAPHY]: TypographyScreen,
 };
 
 export default () => {

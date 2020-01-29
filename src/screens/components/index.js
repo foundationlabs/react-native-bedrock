@@ -3,8 +3,10 @@ import styled from 'styled-components/native';
 import {Navigation} from 'react-native-navigation';
 import {SCREENS} from '../index';
 import {ScreenContainer} from '../../components/ui/screen';
-import NativeSectionList from '../../components/list/section-list';
 import NativeUIListRow from '../../components/list/list-row';
+import {SectionList} from 'react-native';
+import {ListSectionHeader} from '../../components/ui/list';
+import {ListSectionTitle} from '../../components/ui/text';
 
 const Container = styled.View`
 	flex:1;
@@ -14,6 +16,11 @@ const Button = styled.TouchableOpacity`
 `;
 
 const StarIcon = require('../../../assets/icons/star.png');
+const ChevronRightIcon = require('../../../assets/icons/chevron-right.png');
+
+const StyledSectionList = styled(SectionList)`
+  flex:1;
+`;
 
 class ComponentsScreen extends Component {
 
@@ -27,22 +34,26 @@ class ComponentsScreen extends Component {
             {
               key: 'push-large-title',
               title: 'Push (Large Title)',
-              action: this.onPushLargeTitle
+              action: this.onPushLargeTitle,
+              rightIcon: ChevronRightIcon
             },
             {
               key: 'push-small-title',
               title: 'Push (Small Title)',
-              action: this.onPushSmallTitle
+              action: this.onPushSmallTitle,
+              rightIcon: ChevronRightIcon
             },
             {
               key: 'page-sheet',
               title: 'Page Sheet',
-              action: this.onPageSheetPress
+              action: this.onPageSheetPress,
+              rightIcon: ChevronRightIcon
             },
             {
               key: 'form-sheet',
               title: 'Form Sheet',
-              action: this.onFormSheetPress
+              action: this.onFormSheetPress,
+              rightIcon: ChevronRightIcon
             }
           ]
         },
@@ -50,16 +61,30 @@ class ComponentsScreen extends Component {
           title: 'TABLE ROWS',
           data: [
             {
-              key: 'icon-table-row',
-              title: 'Row with icon',
-              action: this.onPushLargeTitle,
-              icon: StarIcon
+              key: 'icon-table-row1',
+              title: 'Row with left icon',
+              leftIcon: StarIcon
             },
             {
-              key: 'icon-table-row',
-              title: 'Row with icon 2',
-              action: this.onPushLargeTitle,
-              icon: StarIcon
+              key: 'icon-table-row3',
+              title: 'Awesome title',
+              subtitle: 'Even better subtitle',
+              leftIcon: StarIcon
+            },
+            {
+              key: 'icon-table-row2',
+              title: 'Row with right icon',
+              rightIcon: StarIcon
+            },
+            {
+              key: 'icon-table-row4',
+              title: 'Swipeable row',
+              subtitle: 'Swipe left to see actions'
+            },
+            {
+              key: 'icon-table-row5',
+              title: 'Swipeable row',
+              subtitle: 'Swipe right to see actions'
             }
           ]
         },
@@ -293,8 +318,20 @@ class ComponentsScreen extends Component {
       <NativeUIListRow
         onPress={item.action}
         title={item.title}
-        leftIcon={item.icon}
+        subtitle={item.subtitle}
+        leftIcon={item.leftIcon}
+        rightIcon={item.rightIcon}
       />
+    );
+  };
+
+  renderSectionHeader = ({section: {title}}) => {
+    return (
+      <ListSectionHeader>
+        <ListSectionTitle>
+          {title}
+        </ListSectionTitle>
+      </ListSectionHeader>
     );
   };
 
@@ -302,71 +339,13 @@ class ComponentsScreen extends Component {
     return (
       <ScreenContainer>
         <Container>
-          <NativeSectionList
-            data={this.state.mockSectionListData}
+          <StyledSectionList
+            renderSectionHeader={this.renderSectionHeader}
             renderItem={this.renderItem}
+            keyExtractor={(item) => item.key}
+            sections={this.state.mockSectionListData}
           />
         </Container>
-        {/*<Container>*/}
-        {/*  <ListSectionHeader>*/}
-        {/*    <ListSectionTitle>*/}
-        {/*      NAVIGATION*/}
-        {/*    </ListSectionTitle>*/}
-        {/*  </ListSectionHeader>*/}
-        {/*  <ListSection>*/}
-        {/*    <Button onPress={this.onPushLargeTitle}>*/}
-        {/*      <ListRow first>*/}
-
-        {/*      </ListRow>*/}
-        {/*    </Button>*/}
-        {/*    <ListRowSeparator/>*/}
-        {/*    <Button onPress={this.onRegisterPress}>*/}
-        {/*      <ListRow>*/}
-        {/*        <ListRowTitle>*/}
-        {/*          Push (Small Title)*/}
-        {/*        </ListRowTitle>*/}
-        {/*      </ListRow>*/}
-        {/*    </Button>*/}
-        {/*    <ListRowSeparator/>*/}
-        {/*    <Button onPress={this.onPageSheetPress}>*/}
-        {/*      <ListRow>*/}
-        {/*        <ListRowTitle>*/}
-        {/*          Page Sheet*/}
-        {/*        </ListRowTitle>*/}
-        {/*      </ListRow>*/}
-        {/*    </Button>*/}
-        {/*    <ListRowSeparator/>*/}
-        {/*    <Button onPress={this.onFormSheetPress}>*/}
-        {/*      <ListRow>*/}
-        {/*        <ListRowTitle>*/}
-        {/*          Form Sheet*/}
-        {/*        </ListRowTitle>*/}
-        {/*      </ListRow>*/}
-        {/*    </Button>*/}
-        {/*    <ListRowSeparator/>*/}
-        {/*    <Button onPress={this.onBottomTabsPress}>*/}
-        {/*      <ListRow last>*/}
-        {/*        <ListRowTitle>*/}
-        {/*          Bottom Tabs*/}
-        {/*        </ListRowTitle>*/}
-        {/*      </ListRow>*/}
-        {/*    </Button>*/}
-        {/*  </ListSection>*/}
-        {/*  <ListSectionHeader>*/}
-        {/*    <ListSectionTitle>*/}
-        {/*      ELEMENTS*/}
-        {/*    </ListSectionTitle>*/}
-        {/*  </ListSectionHeader>*/}
-        {/*  <ListSection>*/}
-        {/*    <Button onPress={this.onTypographyPress}>*/}
-        {/*      <ListRow first last>*/}
-        {/*        <ListRowTitle>*/}
-        {/*          Typography*/}
-        {/*        </ListRowTitle>*/}
-        {/*      </ListRow>*/}
-        {/*    </Button>*/}
-        {/*  </ListSection>*/}
-        {/*</Container>*/}
       </ScreenContainer>
     );
   }
