@@ -56,8 +56,6 @@ class ComponentsScreen extends Component {
             drawBehind: false,
             searchBar: true,
             background: {
-              color: 'white',
-              translucent: true,
               blur: false
             },
             searchBarPlaceholder: 'Search',

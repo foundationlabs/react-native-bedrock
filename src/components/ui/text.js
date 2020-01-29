@@ -39,30 +39,35 @@ export const Headline = styled.Text`
 	font-size: 17px;
 	line-height: 22px;
 	font-weight: normal;
+	color: ${props => props.theme.color.textPrimary};
 `
 
 export const Body = styled.Text`
 	font-size: 17px;
 	line-height: 22px;
 	font-weight: 500;
+	color: ${props => props.theme.color.textPrimary};
 `
 
 export const Callout = styled.Text`
 	font-size: 16px;
 	line-height: 21px;
 	font-weight: 400;
+	color: ${props => props.theme.color.textPrimary};
 `
 
 export const SubHeading = styled.Text`
 	font-size: 15px;
 	line-height: 20px;
 	font-weight: 400;
+	color: ${props => props.theme.color.textPrimary};
 `
 
 export const Footnote = styled.Text`
 	font-size: 13px;
 	line-height: 18px;
 	font-weight: 400;
+	color: ${props => props.theme.color.textPrimary};
 `
 
 export const TabBarButtonTitle = styled.Text`

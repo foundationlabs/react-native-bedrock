@@ -42,6 +42,8 @@ Navigation.events().registerAppLaunchedListener(async () => {
 										},
 										bottomTab: {
 											text: "Components",
+											textColor: '#999999',
+											selectedTextColor: '#307bf6',
 										},
 									},
 								},
@@ -66,6 +68,8 @@ Navigation.events().registerAppLaunchedListener(async () => {
 										},
 										bottomTab: {
 											text: "Themes",
+											textColor: '#999999',
+											selectedTextColor: '#307bf6',
 										},
 									},
 								},
@@ -90,6 +94,8 @@ Navigation.events().registerAppLaunchedListener(async () => {
 										},
 										bottomTab: {
 											text: "About",
+											textColor: '#999999',
+											selectedTextColor: '#307bf6',
 										},
 									},
 								},

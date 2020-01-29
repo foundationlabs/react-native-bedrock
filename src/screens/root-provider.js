@@ -1,16 +1,22 @@
 import React from 'react';
-import Theme from '../theme';
-import {eventEmitter} from 'react-native-dark-mode';
-import {ThemeProvider} from 'styled-components';
+import { lightTheme, darkTheme } from '../theme';
+import { eventEmitter, initialMode } from 'react-native-dark-mode';
+import { ThemeProvider } from 'styled-components';
 
 function rootProvider(sceneComp) {
   class ScreenWrapper extends React.Component {
+    state = {
+      newMode: initialMode
+    }
+
     static options(passProps) {
       return sceneComp.options ? sceneComp.options(passProps) : {};
     }
 
-    onThemeModeChange(newMode) {
-      console.log('Switched to', newMode, 'mode');
+    onThemeModeChange = (newMode) => {
+      this.setState({
+        newMode
+      })
     }
 
     componentDidMount() {
@@ -23,7 +29,7 @@ function rootProvider(sceneComp) {
 
     render() {
       return (
-        <ThemeProvider theme={Theme}>
+        <ThemeProvider theme={this.state.newMode === 'light' ? lightTheme : darkTheme}>
           {React.createElement(sceneComp, this.props)}
         </ThemeProvider>
       );
