@@ -23,7 +23,9 @@ export const ListRow = styled.View`
 	background-color: ${props => props.theme.color.listRow};
 	padding-top: 12px;
 	padding-bottom: 12px;
-	justify-content: center;
+	justify-content: ${props => props.justifyContent || "flex-start"};
+	alignItems: center;
+	flexDirection: row
 `
 
 export const ListRowSeparator = styled.View`
