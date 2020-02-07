@@ -11,8 +11,8 @@ class ThemeProvider extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            themeMode: 'automatic',
-            currentThemeFromDevice: initialMode //native theme from phone set by user from device settings
+            themeMode: store.themeMode,
+            currentThemeFromDevice: store.currentThemeFromDevice //native theme from phone set by user from device settings
         }
     }
 
@@ -34,7 +34,7 @@ class ThemeProvider extends React.PureComponent {
         this.setState({
             themeMode
         })
-        store['mode'] = themeMode
+        store.themeMode = themeMode
     }
 
     getTheme = () => {
@@ -52,6 +52,7 @@ class ThemeProvider extends React.PureComponent {
         this.setState({
             currentThemeFromDevice
         })
+        store.currentThemeFromDevice = currentThemeFromDevice
     }
 
     handleChangeThemeMode = async themeMode => {
