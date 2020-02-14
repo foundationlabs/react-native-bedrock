@@ -1,5 +1,7 @@
 import React from 'react';
-import ThemeProvider from '../components/ui/theme-provider';
+import {AppStateProvider} from '../providers/app-state';
+
+const store = {};
 
 function rootProvider(sceneComp) {
   class ScreenWrapper extends React.Component {
@@ -9,9 +11,9 @@ function rootProvider(sceneComp) {
 
     render() {
       return (
-        <ThemeProvider>
+        <AppStateProvider>
           {React.createElement(sceneComp, this.props)}
-        </ThemeProvider>
+        </AppStateProvider>
       );
     }
   }

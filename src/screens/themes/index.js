@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components/native';
-import { Image } from 'react-native';
-import { ListRow, ListRowSeparator, ListSection, ListSectionHeader } from '../../components/ui/list';
-import { ListRowTitle, ListSectionTitle } from '../../components/ui/text';
-import { ScreenContainer } from '../../components/ui/screen';
-import { ThemeProviderContext } from '../../components/ui/theme-provider'
+import {Image} from 'react-native';
+import {ListRow, ListRowSeparator, ListSection, ListSectionHeader} from '../../components/ui/list';
+import {ListRowTitle, ListSectionTitle} from '../../components/ui/text';
+import {ScreenContainer} from '../../components/ui/screen';
+import {ThemeProviderContext} from '../../components/ui/theme-provider';
 
 const Container = styled.ScrollView`
 	flex:1;
@@ -17,10 +17,10 @@ const Button = styled.TouchableOpacity`
 class ThemesScreen extends Component {
   onChangeTheme = themeMode => {
     this.props.onChangeTheme(themeMode);
-  }
+  };
 
   render() {
-    let { themeMode } = this.props;
+    let {themeMode} = this.props;
 
     return (
       <ScreenContainer>
@@ -64,10 +64,4 @@ class ThemesScreen extends Component {
   }
 }
 
-const _ThemesScreen = props => (
-  <ThemeProviderContext.Consumer>
-    {({ themeMode, onChangeTheme }) => <ThemesScreen {...props} themeMode={themeMode} onChangeTheme={onChangeTheme} />}
-  </ThemeProviderContext.Consumer>
-)
-
-export default _ThemesScreen;
+export default ThemesScreen;

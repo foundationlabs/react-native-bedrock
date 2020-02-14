@@ -24,6 +24,8 @@
     "@babel/core": "^7.7.7",
     "@babel/runtime": "^7.7.7",
     "@react-native-community/eslint-config": "^0.0.6",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "@babel/plugin-proposal-decorators": "7.1.2",
     "babel-jest": "^24.9.0",
     "detox": "^15.1.1",
     "eslint": "^6.8.0",
