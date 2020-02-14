@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 import Context from './context';
-import Theme from './theme';
+import {ThemeProvider} from 'styled-components';
+// import Theme from './theme';
 
 export default class AppStateProvider extends Component {
 
@@ -21,7 +23,7 @@ export default class AppStateProvider extends Component {
         ...this.state,
         themeMode: this.props.appStore.appState.theme
       }}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={{}}>
           {this.props.children}
         </ThemeProvider>
       </Context.Provider>

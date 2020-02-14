@@ -5,7 +5,7 @@ import {SCREENS} from '../index';
 import {ListRowTitle, ListSectionTitle} from '../../components/ui/text';
 import {ListRow, ListRowSeparator, ListSection, ListSectionHeader} from '../../components/ui/list';
 import {ScreenContainer} from '../../components/ui/screen';
-import {SwipeableListRow}  from '../../components/ui/swipeable-list-row';
+import {SwipeableListRow} from '../../components/ui/swipeable-list-row';
 
 const Container = styled.ScrollView`
 	flex:1;
@@ -179,49 +179,49 @@ class ComponentsScreen extends Component {
   onBottomTabsPress = () => {
     const {componentId} = this.props;
     Navigation.push(componentId, {
-        bottomTabs: {
-          options: {
-            topBar: {
-              title: {
-                text: 'Tab 1',
-                fontWeight: 'semibold'
+      bottomTabs: {
+        options: {
+          topBar: {
+            title: {
+              text: 'Tab 1',
+              fontWeight: 'semibold'
+            }
+          }
+        },
+        children: [
+          {
+            component: {
+              name: SCREENS.ABOUT,
+              options: {
+                bottomTab: {
+                  text: 'Tab 1'
+                }
               }
             }
           },
-          children: [
-            {
-              component: {
-                name: SCREENS.ABOUT,
-                options: {
-                  bottomTab: {
-                    text: 'Tab 1'
-                  }
-                }
-              }
-            },
-            {
-              component: {
-                name: SCREENS.ABOUT,
-                options: {
-                  bottomTab: {
-                    text: 'Tab 2'
-                  }
-                }
-              }
-            },
-            {
-              component: {
-                name: SCREENS.ABOUT,
-                options: {
-                  bottomTab: {
-                    text: 'Tab 3'
-                  }
+          {
+            component: {
+              name: SCREENS.ABOUT,
+              options: {
+                bottomTab: {
+                  text: 'Tab 2'
                 }
               }
             }
-          ]
-        }
+          },
+          {
+            component: {
+              name: SCREENS.ABOUT,
+              options: {
+                bottomTab: {
+                  text: 'Tab 3'
+                }
+              }
+            }
+          }
+        ]
       }
+    }
     );
   };
 
@@ -289,9 +289,9 @@ class ComponentsScreen extends Component {
               </ListRow>
             </Button>
             <SwipeableListRow>
-                <ListRowTitle>
-                  Swipeable list
-                </ListRowTitle>
+              <ListRowTitle>
+                Swipeable list
+              </ListRowTitle>
             </SwipeableListRow>
           </ListSection>
         </Container>
