@@ -22,7 +22,7 @@ class ThemesScreen extends Component {
   };
 
   render() {
-    let {themeMode} = this.props;
+    let {currentTheme} = this.props;
 
     return (
       <ScreenContainer>
@@ -33,12 +33,12 @@ class ThemesScreen extends Component {
             </ListSectionTitle>
           </ListSectionHeader>
           <ListSection>
-            <Button onPress={() => this.onChangeTheme('automatic')}>
+            <Button onPress={() => this.onChangeTheme(THEMES.AUTOMATIC)}>
               <ListRow first justifyContent="space-between">
                 <ListRowTitle>
                   Automatic
                 </ListRowTitle>
-                {themeMode === 'automatic' && <Image source={require('../../assets/done.png')} />}
+                {currentTheme === THEMES.AUTOMATIC && <Image source={require('../../assets/done.png')} />}
               </ListRow>
             </Button>
             <ListRowSeparator />
@@ -47,7 +47,7 @@ class ThemesScreen extends Component {
                 <ListRowTitle>
                   Light Mode
                 </ListRowTitle>
-                {themeMode === THEMES.LIGHT && <Image source={require('../../assets/done.png')} />}
+                {currentTheme === THEMES.LIGHT && <Image source={require('../../assets/done.png')} />}
               </ListRow>
             </Button>
             <ListRowSeparator />
@@ -56,7 +56,7 @@ class ThemesScreen extends Component {
                 <ListRowTitle>
                   Dark Mode
                 </ListRowTitle>
-                {themeMode === THEMES.DARK && <Image source={require('../../assets/done.png')} />}
+                {currentTheme === THEMES.DARK && <Image source={require('../../assets/done.png')} />}
               </ListRow>
             </Button>
           </ListSection>

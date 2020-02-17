@@ -9,20 +9,25 @@ export default {
       border: 'rgba(209,209,214,1)',
       listSection: '#fff',
       listRow: '#fff',
+      listRowSeparator: '',
       screenContainer: 'rgba(242,242,247, 1)'
     },
     navigation: {
       topBar: {
         background: {
           color: '#fff'
+        },
+        title: {
+          color: '#000'
+        },
+        largeTitle: {
+          color: '#000'
         }
       },
-      // statusBar: {},
       bottomTabs: {
         backgroundColor: '#fff'
       }
     }
-
   },
   DARK: {
     font: {
@@ -34,6 +39,7 @@ export default {
       border: '#38383A',
       listSection: '#1c1c1e',
       listRow: '#1c1c1e',
+      listRowSeparator: '',
       screenContainer: '#000'
     },
     navigation: {
@@ -43,13 +49,14 @@ export default {
         },
         title: {
           color: '#fff'
+        },
+        largeTitle: {
+          color: '#fff'
         }
       },
-      // statusBar: {},
       bottomTabs: {
         backgroundColor: '#000'
       }
     }
-
   }
 };
