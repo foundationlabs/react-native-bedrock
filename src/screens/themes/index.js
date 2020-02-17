@@ -4,7 +4,8 @@ import {Image} from 'react-native';
 import {ListRow, ListRowSeparator, ListSection, ListSectionHeader} from '../../components/ui/list';
 import {ListRowTitle, ListSectionTitle} from '../../components/ui/text';
 import {ScreenContainer} from '../../components/ui/screen';
-import {ThemeProviderContext} from '../../components/ui/theme-provider';
+import {withAppState} from '../../providers/app-state';
+import {THEMES} from '../../constants';
 
 const Container = styled.ScrollView`
 	flex:1;
@@ -14,9 +15,10 @@ const Button = styled.TouchableOpacity`
 	height: 44px;
 `;
 
+@withAppState
 class ThemesScreen extends Component {
   onChangeTheme = themeMode => {
-    this.props.onChangeTheme(themeMode);
+    this.props.setTheme(themeMode);
   };
 
   render() {
@@ -40,21 +42,21 @@ class ThemesScreen extends Component {
               </ListRow>
             </Button>
             <ListRowSeparator />
-            <Button onPress={() => this.onChangeTheme('light')}>
+            <Button onPress={() => this.onChangeTheme(THEMES.LIGHT)}>
               <ListRow justifyContent="space-between">
                 <ListRowTitle>
                   Light Mode
                 </ListRowTitle>
-                {themeMode === 'light' && <Image source={require('../../assets/done.png')} />}
+                {themeMode === THEMES.LIGHT && <Image source={require('../../assets/done.png')} />}
               </ListRow>
             </Button>
             <ListRowSeparator />
-            <Button onPress={() => this.onChangeTheme('dark')}>
+            <Button onPress={() => this.onChangeTheme(THEMES.DARK)}>
               <ListRow last justifyContent="space-between">
                 <ListRowTitle>
                   Dark Mode
                 </ListRowTitle>
-                {themeMode === 'dark' && <Image source={require('../../assets/done.png')} />}
+                {themeMode === THEMES.DARK && <Image source={require('../../assets/done.png')} />}
               </ListRow>
             </Button>
           </ListSection>

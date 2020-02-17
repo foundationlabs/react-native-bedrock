@@ -13,6 +13,7 @@
     "@react-native-community/async-storage": "^1.7.1",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "prop-types": "latest",
     "react-native-config": "^0.12.0",
     "react-native-dark-mode": "^0.2.1",
     "react-native-gesture-handler": "^1.5.3",

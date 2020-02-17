@@ -1,7 +1,6 @@
 import React from 'react';
-import {AppStateProvider} from '../providers/app-state';
-
-const store = {};
+import AppStateStore from '../store/app-state.js'
+import {AppStateProvider} from './app-state';
 
 function rootProvider(sceneComp) {
   class ScreenWrapper extends React.Component {
@@ -11,7 +10,7 @@ function rootProvider(sceneComp) {
 
     render() {
       return (
-        <AppStateProvider>
+        <AppStateProvider store={AppStateStore} {...this.props}>
           {React.createElement(sceneComp, this.props)}
         </AppStateProvider>
       );
