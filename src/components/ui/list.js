@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native"
 
 
 export const ListSection = styled.View`
-	background-color: #fff;
+	background-color: ${props => props.theme.color.listSection};
 `
 export const ListSectionHeader = styled.View`
 	padding-left: 15px;
@@ -20,10 +20,12 @@ export const ListRow = styled.View`
 	border-bottom-color: ${props => props.last ? props.theme.color.border : "transparent"};
 	padding-left: 15px;
 	padding-right: 15px;
-	background-color: #fff;
+	background-color: ${props => props.theme.color.listRow};
 	padding-top: 12px;
 	padding-bottom: 12px;
-	justify-content: center;
+	justify-content: ${props => props.justifyContent || "flex-start"};
+	alignItems: center;
+	flexDirection: row
 `
 
 export const ListRowSeparator = styled.View`
