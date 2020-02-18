@@ -38,7 +38,7 @@ class ThemesScreen extends Component {
                 <ListRowTitle>
                   Automatic
                 </ListRowTitle>
-                {currentTheme === THEMES.AUTOMATIC && <Image source={require('../../assets/done.png')} />}
+                {currentTheme === THEMES.AUTOMATIC && <Image source={require('../../assets/ios-icons/done.png')} />}
               </ListRow>
             </Button>
             <ListRowSeparator />
@@ -47,7 +47,7 @@ class ThemesScreen extends Component {
                 <ListRowTitle>
                   Light Mode
                 </ListRowTitle>
-                {currentTheme === THEMES.LIGHT && <Image source={require('../../assets/done.png')} />}
+                {currentTheme === THEMES.LIGHT && <Image source={require('../../assets/ios-icons/done.png')} />}
               </ListRow>
             </Button>
             <ListRowSeparator />
@@ -56,7 +56,7 @@ class ThemesScreen extends Component {
                 <ListRowTitle>
                   Dark Mode
                 </ListRowTitle>
-                {currentTheme === THEMES.DARK && <Image source={require('../../assets/done.png')} />}
+                {currentTheme === THEMES.DARK && <Image source={require('../../assets/ios-icons/done.png')} />}
               </ListRow>
             </Button>
           </ListSection>

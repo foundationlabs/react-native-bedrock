@@ -1,23 +1,161 @@
 import React, {Component} from 'react';
 import styled from 'styled-components/native';
+import {Animated, SectionList} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Navigation} from 'react-native-navigation';
 import {SCREENS} from '../index';
-import {ListRowTitle, ListSectionTitle} from '../../components/ui/text';
-import {ListRow, ListRowSeparator, ListSection, ListSectionHeader} from '../../components/ui/list';
+import ICONS from '../../assets/icons';
 import {ScreenContainer} from '../../components/ui/screen';
-import {SwipeableListRow} from '../../components/ui/swipeable-list-row';
+import NativeUIListRow from '../../components/list/row';
+import {ListSectionHeader} from '../../components/ui/list';
+import {ListSectionTitle} from '../../components/ui/text';
 
-const Container = styled.ScrollView`
+const Container = styled.View`
 	flex:1;
 `;
 
-const Button = styled.TouchableOpacity`
-	height: 44px;
+const StyledSectionList = styled(SectionList)`
+  flex:1;
+`;
+
+const AnimatedView = styled(Animated.View)`
+    width: 64px;
+    background-color: ${props => props.theme.color.error};
 `;
 
 class ComponentsScreen extends Component {
 
-  onLoginPress = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mockSectionListData: [
+        {
+          title: 'NAVIGATION',
+          data: [
+            {
+              key: 'push-large-title',
+              title: 'Push (Large Title)',
+              action: this.onPushLargeTitle,
+              rightIcon: ICONS.SYSTEM.DONE
+            },
+            {
+              key: 'push-small-title',
+              title: 'Push (Small Title)',
+              action: this.onPushSmallTitle,
+              rightIcon: ICONS.SYSTEM.DONE
+            },
+            {
+              key: 'page-sheet',
+              title: 'Page Sheet',
+              action: this.onPageSheetPress,
+              rightIcon: ICONS.SYSTEM.DONE
+            },
+            {
+              key: 'form-sheet',
+              title: 'Form Sheet',
+              action: this.onFormSheetPress,
+              rightIcon: ICONS.SYSTEM.DONE
+            }
+          ]
+        },
+        {
+          title: 'TABLE ROWS',
+          data: [
+            {
+              key: 'icon-table-row1',
+              title: 'Row with left icon',
+              leftIcon: ICONS.SYSTEM.DONE
+            },
+            {
+              key: 'icon-table-row3',
+              title: 'Awesome title',
+              subtitle: 'Even better subtitle',
+              leftIcon: ICONS.SYSTEM.DONE
+            },
+            {
+              key: 'icon-table-row2',
+              title: 'Row with right icon',
+              rightIcon: ICONS.SYSTEM.DONE
+            },
+            {
+              key: 'icon-table-row4',
+              title: 'Swipeable row',
+              subtitle: 'Swipe left to see actions',
+              swipeableProps: {
+                rightThreshold: 40,
+                overshootRight: 20,
+                friction: 2,
+                leftThreshold: 30,
+                renderRightActions: this.renderRightActions
+              }
+            },
+            {
+              key: 'icon-table-row5',
+              title: 'Swipeable row',
+              subtitle: 'Swipe right to see actions',
+              swipeableProps: {
+                rightThreshold: 40,
+                friction: 2,
+                renderLeftActions: this.renderLeftActions
+              }
+            }
+          ]
+        },
+        {
+          title: 'TYPOGRAPHY',
+          data: [
+            {
+              key: 'typography',
+              title: 'Typography',
+              action: this.onTypographyPress
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  renderRightActions = (progress) => {
+    const trans = progress.interpolate({
+      inputRange: [0, 1],
+      outputRange: [64, 0]
+    });
+
+    return (
+      <AnimatedView
+        style={[
+          {
+            transform: [{translateX: trans}]
+          }
+        ]}>
+        <TouchableOpacity onPress={this.props.onDeleteItem}>
+
+        </TouchableOpacity>
+      </AnimatedView>
+    );
+  };
+
+  renderLeftActions = (progress) => {
+    const trans = progress.interpolate({
+      inputRange: [0, 1],
+      outputRange: [-64, 0]
+    });
+
+    return (
+      <AnimatedView
+        style={[
+          {
+            transform: [{translateX: trans}]
+          }
+        ]}>
+        <TouchableOpacity onPress={this.props.onDeleteItem}>
+
+        </TouchableOpacity>
+      </AnimatedView>
+    );
+  };
+
+  onPushLargeTitle = () => {
     const {componentId} = this.props;
     Navigation.push(componentId, {
       component: {
@@ -45,7 +183,7 @@ class ComponentsScreen extends Component {
     });
   };
 
-  onRegisterPress = () => {
+  onPushSmallTitle = () => {
     const {componentId} = this.props;
     Navigation.push(componentId, {
       component: {
@@ -56,6 +194,8 @@ class ComponentsScreen extends Component {
             drawBehind: false,
             searchBar: true,
             background: {
+              color: 'white',
+              translucent: true,
               blur: false
             },
             searchBarPlaceholder: 'Search',
@@ -178,50 +318,74 @@ class ComponentsScreen extends Component {
 
   onBottomTabsPress = () => {
     const {componentId} = this.props;
-    Navigation.push(componentId, {
-      bottomTabs: {
-        options: {
-          topBar: {
-            title: {
-              text: 'Tab 1',
-              fontWeight: 'semibold'
-            }
-          }
-        },
-        children: [
-          {
-            component: {
-              name: SCREENS.ABOUT,
-              options: {
-                bottomTab: {
-                  text: 'Tab 1'
-                }
+    Navigation.push(componentId,
+      {
+        bottomTabs: {
+          options: {
+            topBar: {
+              title: {
+                text: 'Tab 1',
+                fontWeight: 'semibold'
               }
             }
           },
-          {
-            component: {
-              name: SCREENS.ABOUT,
-              options: {
-                bottomTab: {
-                  text: 'Tab 2'
+          children: [
+            {
+              component: {
+                name: SCREENS.ABOUT,
+                options: {
+                  bottomTab: {
+                    text: 'Tab 1'
+                  }
+                }
+              }
+            },
+            {
+              component: {
+                name: SCREENS.ABOUT,
+                options: {
+                  bottomTab: {
+                    text: 'Tab 2'
+                  }
+                }
+              }
+            },
+            {
+              component: {
+                name: SCREENS.ABOUT,
+                options: {
+                  bottomTab: {
+                    text: 'Tab 3'
+                  }
                 }
               }
             }
-          },
-          {
-            component: {
-              name: SCREENS.ABOUT,
-              options: {
-                bottomTab: {
-                  text: 'Tab 3'
-                }
-              }
-            }
-          }
-        ]
+          ]
+        }
       }
-    }
+    );
+  };
+
+  renderItem = ({item}) => {
+    return (
+      <NativeUIListRow
+        onPress={item.action}
+        title={item.title}
+        subtitle={item.subtitle}
+        leftIcon={item.leftIcon}
+        swipeableProps={item.swipeableProps}
+        rightIcon={item.rightIcon}
+      />
+    );
+  };
+
+  renderSectionHeader = ({section: {title}}) => {
+    return (
+      <ListSectionHeader>
+        <ListSectionTitle>
+          {title}
+        </ListSectionTitle>
+      </ListSectionHeader>
     );
   };
 
@@ -229,71 +393,12 @@ class ComponentsScreen extends Component {
     return (
       <ScreenContainer>
         <Container>
-          <ListSectionHeader>
-            <ListSectionTitle>
-              NAVIGATION
-            </ListSectionTitle>
-          </ListSectionHeader>
-          <ListSection>
-            <Button onPress={this.onLoginPress}>
-              <ListRow first>
-                <ListRowTitle>
-                  Push (Large Title)
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <ListRowSeparator/>
-            <Button onPress={this.onRegisterPress}>
-              <ListRow>
-                <ListRowTitle>
-                  Push (Small Title)
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <ListRowSeparator/>
-            <Button onPress={this.onPageSheetPress}>
-              <ListRow>
-                <ListRowTitle>
-                  Page Sheet
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <ListRowSeparator/>
-            <Button onPress={this.onFormSheetPress}>
-              <ListRow>
-                <ListRowTitle>
-                  Form Sheet
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <ListRowSeparator/>
-            <Button onPress={this.onBottomTabsPress}>
-              <ListRow last>
-                <ListRowTitle>
-                  Bottom Tabs
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-          </ListSection>
-          <ListSectionHeader>
-            <ListSectionTitle>
-              ELEMENTS
-            </ListSectionTitle>
-          </ListSectionHeader>
-          <ListSection>
-            <Button onPress={this.onTypographyPress}>
-              <ListRow first last>
-                <ListRowTitle>
-                  Typography
-                </ListRowTitle>
-              </ListRow>
-            </Button>
-            <SwipeableListRow>
-              <ListRowTitle>
-                Swipeable list
-              </ListRowTitle>
-            </SwipeableListRow>
-          </ListSection>
+          <StyledSectionList
+            renderSectionHeader={this.renderSectionHeader}
+            renderItem={this.renderItem}
+            keyExtractor={(item) => item.key}
+            sections={this.state.mockSectionListData}
+          />
         </Container>
       </ScreenContainer>
     );

@@ -30,10 +30,17 @@ export const ListSectionTitle = styled.Text`
 
 export const ListRowTitle = styled.Text`
 	font-family: ${props => props.theme.font.primary};
-  color: ${props => props.theme.color.textPrimary};
+    color: ${props => props.theme.color.textPrimary};
 	font-size: 17px;
 	font-weight: 400;
-`
+`;
+
+export const ListRowSubtitle = styled.Text`
+	font-family: ${props => props.theme.font.primary};
+    color: ${props => props.theme.color.textPrimary};
+	font-size: 12px;
+	font-weight: 400;
+`;
 
 export const Headline = styled.Text`
 	font-size: 17px;

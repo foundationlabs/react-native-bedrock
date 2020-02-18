@@ -1,6 +1,7 @@
 import {Navigation} from 'react-native-navigation';
 import registerScreens, {SCREENS} from './screens';
 import {IS_ANDROID} from './utils/platform-utils';
+import ICONS from './assets/icons';
 
 registerScreens();
 
@@ -41,6 +42,7 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
+                      icon: ICONS.SYSTEM.DONE,
                       text: 'Components',
                       textColor: '#999999',
                       selectedTextColor: '#007AFF'
@@ -67,6 +69,7 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
+                      icon: ICONS.SYSTEM.DONE,
                       text: 'Themes',
                       textColor: '#999999',
                       selectedTextColor: '#007AFF'
@@ -93,6 +96,7 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
+                      icon: ICONS.SYSTEM.DONE,
                       text: 'About',
                       textColor: '#999999',
                       selectedTextColor: '#007AFF'

@@ -11,6 +11,7 @@ export default {
       listSection: '#fff',
       listRow: '#fff',
       listRowSeparator: '',
+      sectionHeader: 'rgba(242,242,247, 1)',
       screenContainer: 'rgba(242,242,247, 1)'
     },
     navigation: {
@@ -40,6 +41,7 @@ export default {
       border: '#38383A',
       error: 'rgba(255, 59,48, 1)',
       listSection: '#1c1c1e',
+      sectionHeader: '#000',
       listRow: '#1c1c1e',
       listRowSeparator: '',
       screenContainer: '#000'

@@ -46,7 +46,7 @@ class AppStateStore {
       await AsyncStorage.setItem(STORAGE_KEYS.SELECTED_THEME_TYPE, value);
       this.currentTheme = this.lastAutomaticTheme;
       this.isAutomatic = true;
-    } else {
+    } else if (value) {
       await AsyncStorage.removeItem(STORAGE_KEYS.SELECTED_THEME_TYPE);
       await AsyncStorage.setItem(STORAGE_KEYS.SELECTED_THEME, value);
       this.currentTheme = value;
