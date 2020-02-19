@@ -4,7 +4,7 @@ import {Animated, SectionList} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Navigation} from 'react-native-navigation';
 import {SCREENS} from '../index';
-import ICONS from '../../assets/icons';
+import ICONS from '../../../assets/icons';
 import {ScreenContainer} from '../../components/ui/screen';
 import NativeUIListRow from '../../components/list/row';
 import {ListSectionHeader} from '../../components/ui/list';

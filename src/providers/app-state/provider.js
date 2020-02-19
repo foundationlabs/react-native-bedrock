@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation';
-import {ThemeProvider} from 'styled-components'
+import {ThemeProvider} from 'styled-components';
 import Context from './context';
 import THEME from '../../theme';
 import {THEMES} from '../../constants';

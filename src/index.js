@@ -1,7 +1,7 @@
 import {Navigation} from 'react-native-navigation';
 import registerScreens, {SCREENS} from './screens';
 import {IS_ANDROID} from './utils/platform-utils';
-import ICONS from './assets/icons';
+import ICONS from '../assets/icons';
 
 registerScreens();
 

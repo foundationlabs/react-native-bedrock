@@ -1,5 +1,5 @@
 import React from 'react';
-import AppStateStore from '../store/app-state.js'
+import AppStateStore from '../store/app-state.js';
 import {AppStateProvider} from './app-state';
 
 function rootProvider(sceneComp) {

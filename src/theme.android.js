@@ -1,3 +1,8 @@
+const SPACING = {
+  horizontalPadding: 8
+
+};
+
 export default {
   LIGHT: {
     font: {
@@ -14,6 +19,7 @@ export default {
       sectionHeader: 'rgba(242,242,247, 1)',
       screenContainer: 'rgba(242,242,247, 1)'
     },
+    spacing: SPACING,
     navigation: {
       topBar: {
         background: {
@@ -46,6 +52,7 @@ export default {
       listRowSeparator: '',
       screenContainer: '#000'
     },
+    spacing: SPACING,
     navigation: {
       topBar: {
         background: {

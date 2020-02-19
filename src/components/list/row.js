@@ -42,7 +42,6 @@ const LeftIcon = styled.Image`
   width: 24px;
   height: 24px;
   margin-right:12px;
-  tint-color:rgba(0,122,255,1);
  `;
 
 const RightIcon = styled.Image`
