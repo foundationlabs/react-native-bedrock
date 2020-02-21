@@ -1,5 +1,47 @@
+import {IS_IPHONE_X} from './utils/platform-utils';
+
+// https://ivomynttinen.com/blog/ios-design-guidelines
+
 const SPACING = {
-  horizontalPadding: 8
+  horizontalPadding: 8,
+  listRowHorizontalPadding: 15
+};
+const SIZES = {
+  statusBarHeight: IS_IPHONE_X ? 44 : 20,
+  tabBarHeight: 49,
+  toolbarHeight: 44,
+  searchBarHeight: 51,
+  navigationBarHeight: 44,
+  bottomSpacing: IS_IPHONE_X ? 34 : 0,
+
+  listRowHeight: 43,
+  largeListRowHeight: 60,
+  listRowLeftIconSize: 29,
+
+  segmentedControl: 29
+};
+
+const TEXT_ELEMENT_STYLES = {
+  listRowTitle: {
+    fontSize: 17,
+    letterSpacing: -0.41,
+    fontWeight: 400
+  },
+  listRowSubtitle: {
+    fontSize: 15,
+    letterSpacing: -0.24,
+    fontWeight: 400
+  },
+  tableHeader: {
+    fontSize: 13,
+    letterSpacing: -0.08,
+    fontWeight: 400
+  },
+  tableFooter: {
+    fontSize: 13,
+    letterSpacing: -0.08,
+    fontWeight: 400
+  }
 };
 
 export default {
@@ -7,8 +49,11 @@ export default {
     font: {
       primary: 'Helvetica'
     },
+    size: SIZES,
+    text: TEXT_ELEMENT_STYLES,
     color: {
       textPrimary: 'rgba(0,0,0,0.87)',
+      textSecondary: 'rgba(142,142,147,1)',
       textListSection: 'rgba(142,142,147,1)',
       border: 'rgba(209,209,214,1)',
       error: 'rgba(255, 59,48, 1)',
@@ -40,8 +85,11 @@ export default {
     font: {
       primary: 'Helvetica'
     },
+    size: SIZES,
+    text: TEXT_ELEMENT_STYLES,
     color: {
       textPrimary: '#fff',
+      textSecondary: 'rgba(142,142,147,1)',
       textListSection: '#6e6e72',
       border: '#38383A',
       error: 'rgba(255, 59,48, 1)',

@@ -11,7 +11,7 @@ const Container = styled.View`
   align-items: center;
   padding-left: 15px;
   background-color: ${props => props.theme.color.listRow};
-  height:44px;
+  height:${props => props.subtitle ? props.theme.size.largeListRowHeight : props.theme.size.listRowHeight};
 `;
 
 const Content = styled.View`
@@ -69,9 +69,7 @@ class NativeUIListRow extends Component {
     })
   };
 
-  static defaultProps = {
-
-  };
+  static defaultProps = {};
 
   render() {
     const {
@@ -85,7 +83,7 @@ class NativeUIListRow extends Component {
 
     const content = (
       <BorderlessButton onPress={onPress}>
-        <Container>
+        <Container subtitle={!!subtitle}>
           {!!leftIcon && <LeftIcon
             source={leftIcon}
           />}
