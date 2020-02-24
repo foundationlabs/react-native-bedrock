@@ -16,6 +16,7 @@ const SIZES = {
 
   segmentedControl: 29
 };
+
 const TEXT_ELEMENT_STYLES = {
   listRowTitle: {
     fontSize: 17,
@@ -48,6 +49,7 @@ export default {
     text: TEXT_ELEMENT_STYLES,
     color: {
       textPrimary: 'rgba(0,0,0,0.87)',
+      textSecondary: 'rgba(142,142,147,1)',
       textListSection: 'rgba(142,142,147,1)',
       border: 'rgba(209,209,214,1)',
       error: 'rgba(255, 59,48, 1)',
@@ -55,7 +57,8 @@ export default {
       listRow: '#fff',
       listRowSeparator: '',
       sectionHeader: 'rgba(242,242,247, 1)',
-      screenContainer: 'rgba(242,242,247, 1)'
+      screenContainer: 'rgba(242,242,247, 1)',
+      disclosureIndicator: 'rgba(203,203,205,1)'
     },
     spacing: SPACING,
     navigation: {
@@ -83,6 +86,7 @@ export default {
     text: TEXT_ELEMENT_STYLES,
     color: {
       textPrimary: '#fff',
+      textSecondary: 'rgba(142,142,147,1)',
       textListSection: '#6e6e72',
       border: '#38383A',
       error: 'rgba(255, 59,48, 1)',
@@ -90,7 +94,8 @@ export default {
       sectionHeader: '#000',
       listRow: '#1c1c1e',
       listRowSeparator: '',
-      screenContainer: '#000'
+      screenContainer: '#000',
+      disclosureIndicator: 'rgba(203,203,205,1)'
     },
     spacing: SPACING,
     navigation: {

@@ -7,12 +7,8 @@ import {SCREENS} from '../index';
 import ICONS from '../../../assets/icons';
 import {ScreenContainer} from '../../components/ui/screen';
 import NativeUIListRow from '../../components/list/row';
-import {ListSectionHeader} from '../../components/ui/list';
+import {ListRowSeparator, ListSectionHeader} from '../../components/ui/list';
 import {ListSectionTitle} from '../../components/ui/text';
-
-const Container = styled.View`
-	flex:1;
-`;
 
 const StyledSectionList = styled(SectionList)`
   flex:1;
@@ -36,25 +32,25 @@ class ComponentsScreen extends Component {
               key: 'push-large-title',
               title: 'Push (Large Title)',
               action: this.onPushLargeTitle,
-              rightIcon: ICONS.SYSTEM.DONE
+              showChevron: true
             },
             {
               key: 'push-small-title',
               title: 'Push (Small Title)',
               action: this.onPushSmallTitle,
-              rightIcon: ICONS.SYSTEM.DONE
+              showChevron: true
             },
             {
               key: 'page-sheet',
               title: 'Page Sheet',
               action: this.onPageSheetPress,
-              rightIcon: ICONS.SYSTEM.DONE
+              showChevron: true
             },
             {
               key: 'form-sheet',
               title: 'Form Sheet',
               action: this.onFormSheetPress,
-              rightIcon: ICONS.SYSTEM.DONE
+              showChevron: true
             }
           ]
         },
@@ -64,18 +60,17 @@ class ComponentsScreen extends Component {
             {
               key: 'icon-table-row1',
               title: 'Row with left icon',
-              leftIcon: ICONS.SYSTEM.DONE
+              leftIcon: ICONS.SYSTEM.CONTROL_CENTER
             },
             {
               key: 'icon-table-row3',
               title: 'Awesome title',
               subtitle: 'Even better subtitle',
-              leftIcon: ICONS.SYSTEM.DONE
             },
             {
               key: 'icon-table-row2',
               title: 'Row with right icon',
-              rightIcon: ICONS.SYSTEM.DONE
+              rightIcon: ICONS.SYSTEM.CHECKMARK
             },
             {
               key: 'icon-table-row4',
@@ -107,7 +102,8 @@ class ComponentsScreen extends Component {
             {
               key: 'typography',
               title: 'Typography',
-              action: this.onTypographyPress
+              action: this.onTypographyPress,
+              showChevron: true
             }
           ]
         }
@@ -375,6 +371,7 @@ class ComponentsScreen extends Component {
         leftIcon={item.leftIcon}
         swipeableProps={item.swipeableProps}
         rightIcon={item.rightIcon}
+        showChevron={item.showChevron}
       />
     );
   };
@@ -392,14 +389,13 @@ class ComponentsScreen extends Component {
   render() {
     return (
       <ScreenContainer>
-        <Container>
-          <StyledSectionList
-            renderSectionHeader={this.renderSectionHeader}
-            renderItem={this.renderItem}
-            keyExtractor={(item) => item.key}
-            sections={this.state.mockSectionListData}
-          />
-        </Container>
+        <StyledSectionList
+          ItemSeparatorComponent={() => <ListRowSeparator/>}
+          renderSectionHeader={this.renderSectionHeader}
+          renderItem={this.renderItem}
+          keyExtractor={(item) => item.key}
+          sections={this.state.mockSectionListData}
+        />
       </ScreenContainer>
     );
   }

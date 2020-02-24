@@ -35,3 +35,14 @@ export const ListRowSeparator = styled.View`
 	margin-left: 15px;
 	background-color: ${props => props.theme.color.border};
 `;
+
+export const ListRowRightIcon = styled.Image`
+  width: 16px;
+  height: 16px;
+ `;
+
+export const ListRowLeftIcon = styled.Image`
+  width: 24px;
+  height: 24px;
+  margin-right:12px;
+ `;

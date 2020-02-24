@@ -42,10 +42,11 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
-                      icon: ICONS.SYSTEM.DONE,
+                      icon: ICONS.SYSTEM.STAR,
                       text: 'Components',
                       textColor: '#999999',
-                      selectedTextColor: '#007AFF'
+                      selectedTextColor: '#007AFF',
+                      selectedIconColor: '#007AFF'
                     }
                   }
                 }

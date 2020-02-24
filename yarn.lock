@@ -5688,6 +5688,11 @@ react-native-dark-mode@^0.2.1:
     events "^3.0.0"
     toolkit.ts "^0.0.2"
 
+react-native-device-info@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.5.3.tgz#6652fb46c4602a1dd3a5d6a18d2266ecdf97fec7"
+  integrity sha512-bzUVTPHca+FfNco1qaOM1+idoeII8zdpGRsR+RK+DWhwp9utHZWfbkonZZ9XFm/U+i3mirNxt6oaKV+vUMjMzg==
+
 react-native-gesture-handler@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.5.3.tgz#191b44701fab7ba54c27a2438cb5eaa252666e66"
@@ -5698,10 +5703,10 @@ react-native-gesture-handler@^1.5.3:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-navigation@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-5.0.0.tgz#1f821a7a8c17ea13d5b47cad20cea8d299d05be8"
-  integrity sha512-eGQlRNhK20NOeJwnt1cxjag79NvjhUsyQk4zED6q7CP2MS0OpWIbz4g/n7t7B80MwmnBf7I0LXz4or2IDEgVEQ==
+react-native-navigation@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-6.0.1.tgz#633adaf8a919352aacd44ab0e434bc7c9910ffc2"
+  integrity sha512-K0AWin7EE0fTMXdixXegbfIepYc3fdshjatzx3hrorkpoQDjKk2b9BMhwMKpOBT/tBMI8ZS9oXM6Nk5UqZnJqA==
   dependencies:
     hoist-non-react-statics "3.x.x"
     lodash "4.17.x"

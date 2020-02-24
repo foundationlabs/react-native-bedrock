@@ -86,3 +86,9 @@ export const TabBarButtonTitle = styled.Text`
 	font-weight: 600;
 `;
 
+export const ListRowValueLabel = styled.Text`
+    font-family: ${props => props.theme.font.primary};
+    color: ${props => props.theme.color.textSecondary};
+    font-size: 17px;
+    font-weight: 400;
+`;
