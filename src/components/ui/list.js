@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
+import {IS_ANDROID} from '../../utils/platform-utils';
 
 export const ListSection = styled.View`
 	background-color: ${props => props.theme.color.listSection};
@@ -8,8 +9,8 @@ export const ListSectionHeader = styled.View`
 	padding-left: 15px;
 	padding-right: 15px;
 	justify-content: flex-end;
+	border-bottom-width: ${IS_ANDROID ? 0 : StyleSheet.hairlineWidth};
 	border-bottom-color: ${props => props.theme.color.border};
-	border-bottom-width: ${StyleSheet.hairlineWidth};
 	background-color: ${props => props.theme.color.sectionHeader};
 	padding-top: 8px;
 	padding-bottom: 8px;

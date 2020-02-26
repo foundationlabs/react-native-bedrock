@@ -70,10 +70,12 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
-                      icon: ICONS.SYSTEM.DONE,
+                      icon: ICONS.SYSTEM.THEMES,
                       text: 'Themes',
                       textColor: '#999999',
-                      selectedTextColor: '#007AFF'
+                      selectedTextColor: '#007AFF',
+                      selectedIconColor: '#007AFF'
+
                     }
                   }
                 }
@@ -97,10 +99,11 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
-                      icon: ICONS.SYSTEM.DONE,
+                      icon: ICONS.SYSTEM.INFO,
                       text: 'About',
                       textColor: '#999999',
-                      selectedTextColor: '#007AFF'
+                      selectedTextColor: '#007AFF',
+                      selectedIconColor: '#007AFF'
                     }
                   }
                 }

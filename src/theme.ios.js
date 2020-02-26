@@ -22,6 +22,9 @@ const SIZES = {
 };
 
 const TEXT_ELEMENT_STYLES = {
+  largeTitle: {},
+  mediumTitle: {},
+  smallTitle: {},
   listRowTitle: {
     fontSize: 17,
     letterSpacing: -0.41,
@@ -52,6 +55,8 @@ export default {
     size: SIZES,
     text: TEXT_ELEMENT_STYLES,
     color: {
+      activeText: '#007AFF',
+      activeIcon: '#007AFF',
       textPrimary: 'rgba(0,0,0,0.87)',
       textSecondary: 'rgba(142,142,147,1)',
       textListSection: 'rgba(142,142,147,1)',

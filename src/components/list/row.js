@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {BorderlessButton} from 'react-native-gesture-handler';
+import {RectButton} from 'react-native-gesture-handler';
 import {ListRowSubtitle, ListRowTitle, ListRowValueLabel} from '../ui/text';
 import ICONS from '../../../assets/icons';
 import {ListRow, ListRowLeftIcon} from '../ui/list';
@@ -61,7 +61,7 @@ class NativeUIListRow extends Component {
     } = this.props;
 
     const content = (
-      <BorderlessButton onPress={onPress}>
+      <RectButton onPress={onPress}>
         <ListRow subtitle={!!subtitle}>
           {!!leftIcon && <ListRowLeftIcon
             source={leftIcon}
@@ -80,7 +80,7 @@ class NativeUIListRow extends Component {
             {!!rightIcon && <RightIcon source={rightIcon}/>}
           </RightContent>
         </ListRow>
-      </BorderlessButton>
+      </RectButton>
     );
 
     if (swipeableProps) {

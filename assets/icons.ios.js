@@ -1,6 +1,10 @@
 export default {
   SYSTEM: {
     STAR: require('./ios-icons/star.png'),
+
+    THEMES: require('./android-icons/ic_palette.png'),
+    INFO: require('./android-icons/ic_info.png'),
+
     DONE: require('./ios-icons/done.png'),
     CHECKMARK: require('./ios-icons/selected.png'),
     CHEVRON: require('./ios-icons/chevron.png'),

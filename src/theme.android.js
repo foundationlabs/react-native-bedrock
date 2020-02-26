@@ -10,7 +10,7 @@ const SIZES = {
   navigationBarHeight: 44,
   bottomSpacing: 0,
 
-  listRowHeight: 43,
+  listRowHeight: 48,
   largeListRowHeight: 60,
   listRowLeftIconSize: 29,
 
@@ -18,6 +18,9 @@ const SIZES = {
 };
 
 const TEXT_ELEMENT_STYLES = {
+  largeTitle: {},
+  mediumTitle: {},
+  smallTitle: {},
   listRowTitle: {
     fontSize: 17,
     letterSpacing: -0.41,
@@ -48,6 +51,8 @@ export default {
     size: SIZES,
     text: TEXT_ELEMENT_STYLES,
     color: {
+      activeText: '#007AFF',
+      activeIcon: '#007AFF',
       textPrimary: 'rgba(0,0,0,0.87)',
       textSecondary: 'rgba(142,142,147,1)',
       textListSection: 'rgba(142,142,147,1)',
@@ -56,7 +61,7 @@ export default {
       listSection: '#fff',
       listRow: '#fff',
       listRowSeparator: '',
-      sectionHeader: 'rgba(242,242,247, 1)',
+      sectionHeader: '#fff',
       screenContainer: 'rgba(242,242,247, 1)',
       disclosureIndicator: 'rgba(203,203,205,1)'
     },
