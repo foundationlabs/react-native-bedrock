@@ -10,8 +10,8 @@ const SIZES = {
   navigationBarHeight: 44,
   bottomSpacing: 0,
 
-  listRowHeight: 48,
-  largeListRowHeight: 60,
+  listRowHeight: 64,
+  largeListRowHeight: 72,
   listRowLeftIconSize: 29,
 
   segmentedControl: 29
@@ -22,19 +22,19 @@ const TEXT_ELEMENT_STYLES = {
   mediumTitle: {},
   smallTitle: {},
   listRowTitle: {
-    fontSize: 17,
-    letterSpacing: -0.41,
+    fontSize: 16,
+    letterSpacing: 0.15,
     fontWeight: 400
   },
   listRowSubtitle: {
-    fontSize: 15,
-    letterSpacing: -0.24,
+    fontSize: 14,
+    letterSpacing: 0.25,
     fontWeight: 400
   },
   tableHeader: {
-    fontSize: 13,
-    letterSpacing: -0.08,
-    fontWeight: 400
+    fontSize: 12,
+    letterSpacing: 0.15,
+    fontWeight: 500
   },
   tableFooter: {
     fontSize: 13,
@@ -46,16 +46,16 @@ const TEXT_ELEMENT_STYLES = {
 export default {
   LIGHT: {
     font: {
-      primary: 'Helvetica'
+      primary: 'Roboto'
     },
     size: SIZES,
     text: TEXT_ELEMENT_STYLES,
     color: {
       activeText: '#007AFF',
       activeIcon: '#007AFF',
-      textPrimary: 'rgba(0,0,0,0.87)',
+      textPrimary: '#000000',
       textSecondary: 'rgba(142,142,147,1)',
-      textListSection: 'rgba(142,142,147,1)',
+      textListSection: '#000000',
       border: 'rgba(209,209,214,1)',
       error: 'rgba(255, 59,48, 1)',
       listSection: '#fff',

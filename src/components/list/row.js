@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {RectButton} from 'react-native-gesture-handler';
+import {TouchableNativeFeedback, RectButton} from 'react-native-gesture-handler';
 import {ListRowSubtitle, ListRowTitle, ListRowValueLabel} from '../ui/text';
 import ICONS from '../../../assets/icons';
 import {ListRow, ListRowLeftIcon} from '../ui/list';
+import {IS_ANDROID} from '../../utils/platform-utils';
 
 const LeftContent = styled.View`
    flex:1;
@@ -24,6 +25,9 @@ const RightIcon = styled.Image`
   margin-left: 12px;
   tint-color:${props => props.theme.color.disclosureIndicator};
  `;
+
+const Touchable = IS_ANDROID ? TouchableNativeFeedback : RectButton;
+
 
 class NativeUIListRow extends Component {
 
@@ -60,8 +64,9 @@ class NativeUIListRow extends Component {
       value
     } = this.props;
 
+
     const content = (
-      <RectButton onPress={onPress}>
+      <Touchable onPress={onPress}>
         <ListRow subtitle={!!subtitle}>
           {!!leftIcon && <ListRowLeftIcon
             source={leftIcon}
@@ -80,7 +85,7 @@ class NativeUIListRow extends Component {
             {!!rightIcon && <RightIcon source={rightIcon}/>}
           </RightContent>
         </ListRow>
-      </RectButton>
+      </Touchable>
     );
 
     if (swipeableProps) {

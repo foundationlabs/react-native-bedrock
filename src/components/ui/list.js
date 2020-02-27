@@ -23,6 +23,7 @@ export const ListRow = styled.View`
 	border-bottom-color: ${props => props.last ? props.theme.color.border : 'transparent'};
 	padding-left: 15px;
 	padding-right: 15px;
+	min-height:${props => props.subtitle ? props.theme.size.largeListRowHeight : props.theme.size.listRowHeight}
 	background-color: ${props => props.theme.color.listRow};
 	padding-top: 12px;
 	padding-bottom: 12px;
