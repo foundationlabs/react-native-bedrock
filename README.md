@@ -17,6 +17,14 @@ iOS and Android come with sophisticated native components which are underutilize
 - **How does this differ from other starter kits?** Using this starter kit is the fastest way to build a good user experience. Apps that utilize native components enjoy better engagement metrics.
 - **What's the status of this project?** Bedrock is pre-Alpha and in active development.
 
+
+## Dependencies [WIP]
+##### [react-native-navigation](https://wix.github.io/react-native-navigation/#/) Native navigation
+##### [react-native-config](https://github.com/luggit/react-native-config) Environment variables support
+##### [react-native-dark-mode](https://github.com/codemotionapps/react-native-dark-mode) Dark Mode Support
+##### [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler) Native gesture responders (used together win `react-native-reanimated`)
+##### [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) Declarative 60fps UI animations for RN
+
 ## Getting Started
 
 #### 1. Clone and Install
