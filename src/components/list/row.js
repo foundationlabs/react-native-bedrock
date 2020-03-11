@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {TouchableNativeFeedback, RectButton} from 'react-native-gesture-handler';
+import {TouchableNativeFeedback, BorderlessButton} from 'react-native-gesture-handler';
 import {ListRowSubtitle, ListRowTitle, ListRowValueLabel} from '../ui/text';
 import ICONS from '../../../assets/icons';
 import {ListRow, ListRowLeftIcon} from '../ui/list';
@@ -26,7 +26,7 @@ const RightIcon = styled.Image`
   tint-color:${props => props.theme.color.disclosureIndicator};
  `;
 
-const Touchable = IS_ANDROID ? TouchableNativeFeedback : RectButton;
+const Touchable = IS_ANDROID ? TouchableNativeFeedback : BorderlessButton;
 
 
 class NativeUIListRow extends Component {
