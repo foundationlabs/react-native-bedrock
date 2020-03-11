@@ -1,6 +1,7 @@
 import {Navigation} from 'react-native-navigation';
 import registerScreens, {SCREENS} from './screens';
 import {IS_ANDROID} from './utils/platform-utils';
+import ICONS from '../assets/icons';
 
 registerScreens();
 
@@ -41,9 +42,11 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
+                      icon: ICONS.SYSTEM.STAR,
                       text: 'Components',
                       textColor: '#999999',
-                      selectedTextColor: '#007AFF'
+                      selectedTextColor: '#007AFF',
+                      selectedIconColor: '#007AFF'
                     }
                   }
                 }
@@ -67,9 +70,12 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
+                      icon: ICONS.SYSTEM.THEMES,
                       text: 'Themes',
                       textColor: '#999999',
-                      selectedTextColor: '#007AFF'
+                      selectedTextColor: '#007AFF',
+                      selectedIconColor: '#007AFF'
+
                     }
                   }
                 }
@@ -93,9 +99,11 @@ Navigation.events().registerAppLaunchedListener(async() => {
                       }
                     },
                     bottomTab: {
+                      icon: ICONS.SYSTEM.INFO,
                       text: 'About',
                       textColor: '#999999',
-                      selectedTextColor: '#007AFF'
+                      selectedTextColor: '#007AFF',
+                      selectedIconColor: '#007AFF'
                     }
                   }
                 }

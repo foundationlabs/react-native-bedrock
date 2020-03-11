@@ -1,4 +1,5 @@
 import {Navigation} from 'react-native-navigation';
+import {gestureHandlerRootHOC} from 'react-native-gesture-handler'
 import rootProvider from '../providers/root-provider';
 import ComponentsScreen from './components';
 import ThemesScreen from './themes';
@@ -22,6 +23,6 @@ export const screens = {
 export default () => {
   // eslint-disable-next-line guard-for-in
   for (let r in screens) {
-    Navigation.registerComponent(r, () => rootProvider(screens[r]), () => screens[r]);
+    Navigation.registerComponent(r, () => gestureHandlerRootHOC(rootProvider(screens[r])), () => screens[r]);
   }
 };
